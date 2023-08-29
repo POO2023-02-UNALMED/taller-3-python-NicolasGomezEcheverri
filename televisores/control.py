@@ -11,20 +11,26 @@ class Control:
         self._tv.turnOff()
     
     def canalUp(self):
-        self._tv.canalUp()
+        if self._tv._canal < 120:
+            self._tv.canalUp()
     def canalDown(self):
-        self._tv.canalDown()
+        if self._tv._canal > 1:
+            self._tv.canalDown()
     
     def volumenUp(self):
-        self._tv.volumenUp()
+        if self._tv._volume < 7:
+            self._tv.volumenUp()
     def volumenDown(self):
-        self._tv.volumenDown()
+        if self._tv._volume > 0:
+            self._tv.volumenDown()
     
     def setCanal(self, canal):
-        self._tv.setCanal(canal)
+        if canal <= 120 and canal >= 1:
+            self._tv.setCanal(canal)
     
     def setVolumen(self, volume):
-        self._tv.setVolume(volume)
+        if volume <= 7 and volume >= 0:
+            self._tv.setVolumen(volume)
     
     def enlazar(self, tv):
         self._tv = tv
